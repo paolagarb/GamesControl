@@ -120,10 +120,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Modelo\Editor.cs" />
-    <Compile Include="Modelo\Genero.cs" />
-    <Compile Include="Modelo\IntId.cs" />
-    <Compile Include="Modelo\Jogo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\GamesControlBLL.rd.xml" />
   </ItemGroup>
@@ -134,6 +130,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Serviços\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GamesControlDAL\GamesControlDAL.csproj">
+      <Project>{9e893270-c1dc-4248-84b0-07af2b86626a}</Project>
+      <Name>GamesControlDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Library.Entities\Library.Entities.csproj">
+      <Project>{701c4947-f183-4e41-9212-5d70bafcaa0f}</Project>
+      <Name>Library.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GamesControlBLL.Modelo
+namespace Library.Entities
 {
-    public class Editor : IntId
+    public class IntId
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
     }
 }

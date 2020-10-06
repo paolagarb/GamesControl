@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9E893270-C1DC-4248-84B0-07AF2B86626A}</ProjectGuid>
+    <ProjectGuid>{701C4947-F183-4E41-9212-5D70BAFCAA0F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GamesControlDAL</RootNamespace>
-    <AssemblyName>GamesControlDAL</AssemblyName>
+    <RootNamespace>Library.Entities</RootNamespace>
+    <AssemblyName>Library.Entities</AssemblyName>
     <DefaultLanguage>pt-BR</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
@@ -120,19 +120,17 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Editor.cs" />
+    <Compile Include="Genero.cs" />
+    <Compile Include="IntId.cs" />
+    <Compile Include="Jogo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\GamesControlDAL.rd.xml" />
+    <EmbeddedResource Include="Properties\Library.Entities.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.10</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Library.Entities\Library.Entities.csproj">
-      <Project>{701c4947-f183-4e41-9212-5d70bafcaa0f}</Project>
-      <Name>Library.Entities</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
