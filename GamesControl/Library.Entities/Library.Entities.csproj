@@ -125,6 +125,7 @@
     <Compile Include="IntId.cs" />
     <Compile Include="Jogo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuario.cs" />
     <EmbeddedResource Include="Properties\Library.Entities.rd.xml" />
   </ItemGroup>
   <ItemGroup>

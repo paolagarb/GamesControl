@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+<link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <title>Biblioteca de Jogos</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -15,6 +16,8 @@
             <br />
             Senha: <br />
             <asp:TextBox ID="txtSenha" runat="server" Width="135px" TextMode="Password"></asp:TextBox>
+            <br />
+            <asp:Button ID="BtnLogin" Text="Entrar" runat="server" OnClick="BtnLogin_Click" />
         </div>
     </form>
 </body>
