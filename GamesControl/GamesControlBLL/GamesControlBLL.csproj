@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{a2bf3f83-a453-4046-b314-3d23962edc8b}</ProjectGuid>
+    <ProjectGuid>{A2BF3F83-A453-4046-B314-3D23962EDC8B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GamesControlBLL</RootNamespace>
@@ -120,9 +120,20 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Modelo\Editor.cs" />
+    <Compile Include="Modelo\Genero.cs" />
+    <Compile Include="Modelo\IntId.cs" />
+    <Compile Include="Modelo\Jogo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\GamesControlBLL.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.10</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Serviços\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
