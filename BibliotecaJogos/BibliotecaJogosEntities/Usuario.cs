@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace BibliotecaJogosEntities
 {
-    public class IntID
+    public class Usuario : IntID
     {
-        public int Id { get; set; }
+            public string User { get; set; }
+            public string Senha { get; set; }
+            public char Perfil { get; set; }
+
     }
 }

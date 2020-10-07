@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibliotecaJogosEntities
 {
-    class Editor : IntID
+    public class Editor : IntID
     {
         public int Id { get; set; }
         public string Nome { get; set; }

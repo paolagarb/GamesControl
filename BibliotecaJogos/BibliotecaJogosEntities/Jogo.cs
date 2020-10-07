@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibliotecaJogosEntities
 {
-    class Jogo : IntID
+    public class Jogo : IntID
     {
         public int Id { get; set; }
         public string Titulo { get; set; }

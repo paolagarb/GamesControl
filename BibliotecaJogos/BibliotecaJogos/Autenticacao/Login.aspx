@@ -19,8 +19,12 @@
             <br />
             <asp:TextBox ID="txtSenha" runat="server" TextMode="Password"></asp:TextBox>
             <br />
-
+            <asp:Button ID="btnLogin" runat="server" Text="Entrar" OnClick="btnLogin_Click" />
+            <br />
+            <asp:Label ID="lblResposta" runat="server" Text=""></asp:Label>
         </div>
+        
+        
         
     </form>
 </body>
