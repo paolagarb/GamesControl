@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BibliotecaJogosBLL.Exceptions;
+using System.Web.Security;
 
 namespace BibliotecaJogos.Autenticacao
 {
@@ -26,6 +27,7 @@ namespace BibliotecaJogos.Autenticacao
             try
             {
                 var usuario = _loginBo.ObterUsuario(nomeUsuario, senha);
+                FormsAuthentication.RedirectFromLoginPage(nomeUsuario, false); //false = não permanece logado
             }
             catch (UsuarioNaoEncontradoException)
             {
