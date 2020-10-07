@@ -14,7 +14,8 @@ namespace GamesControlBLL.Autenticacao
         private UsuarioDAO _usuarioDao;
         public Usuario ObterUsuario(string nomeUsuario, string senha)
         {
-            Usuario usuario = _usuarioDao.ObterUsuario(nomeUsuario, senha);
+            _usuarioDao = new UsuarioDAO();
+            var usuario = _usuarioDao.ObterUsuario(nomeUsuario, senha);
             if (usuario == null)
             {
                 throw new UsuarioNaoCadastradoException();

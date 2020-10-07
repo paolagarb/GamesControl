@@ -17,6 +17,8 @@
             Senha: <br />
             <asp:TextBox ID="txtSenha" runat="server" Width="135px" TextMode="Password"></asp:TextBox>
             <br />
+            <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
+            <br />
             <asp:Button ID="BtnLogin" Text="Entrar" runat="server" OnClick="BtnLogin_Click" />
         </div>
     </form>
