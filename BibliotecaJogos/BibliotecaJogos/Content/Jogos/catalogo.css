@@ -1,8 +1,15 @@
 ﻿body {
 }
 
-capa-jogo {
-    width: 200px;
-    height: 100px;
+.jogo {
+    position: relative;
+    float: left;
+    padding-right: 20px;
+}
+
+.capa-jogo {
+    width: 150px;
+    height: 200px;
     border: 1px solid black;
 }
+

@@ -12,7 +12,7 @@ namespace BibliotecaJogos.Jogos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            CarregarJogosRepeater();
         }
 
         private void CarregarJogosRepeater()

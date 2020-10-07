@@ -11,6 +11,7 @@
                 <div class="capa-jogo">
                 </div>
                 <div class="nome-jogo">
+                    <%# DataBinder.Eval(Container.DataItem,"Titulo") %>
                 </div>
             </div>
 
