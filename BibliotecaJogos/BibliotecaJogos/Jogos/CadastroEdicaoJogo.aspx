@@ -36,6 +36,10 @@
         EnableClientScrip="true"
         HeaderText="Preencha os seguintes campos:"
         runat="server" />
+    <br />
+    <asp:Label ID="LblMsgErro" runat="server" Text=""></asp:Label>
+    <br />
     <asp:Button ID="BtnGravar" runat="server" Text="Gravar" CssClass="btn btn-primary" OnClick="BtnGravar_Click" />
-
+    <br />
+    <a href="Catalogo.aspx">Voltar ao catálogo de jogos</a>
 </asp:Content>

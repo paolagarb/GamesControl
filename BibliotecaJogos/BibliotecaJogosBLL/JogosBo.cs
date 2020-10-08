@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BibliotecaJogosBLL.Autenticacao;
+using BibliotecaJogosBLL.Exceptions;
 using BibliotecaJogosDAL;
 using BibliotecaJogosEntities;
 
@@ -17,6 +18,18 @@ namespace BibliotecaJogosBLL
         {
             _jogoDAO = new JogoDAO();
             return _jogoDAO.ObterJogos();
+        }
+
+        public Jogo ObterJogoId(int id)
+        {
+            _jogoDAO = new JogoDAO();
+            var jogo = _jogoDAO.ObterJogoId(id);
+
+            if (jogo == null )
+            {
+                throw new JogoNaoEncontradoException();
+            } 
+            return jogo;
         }
 
         public void InserirNovoJogo(Jogo jogo)

@@ -2,6 +2,7 @@
 using BibliotecaJogosEntities;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -21,6 +22,8 @@ namespace BibliotecaJogos.Jogos
             {
                 CarregarEditoresCombo();
                 CarregarGenerosCombo();
+
+                if (ModoEdicao()) CarregarDadosEdicao();
             }
         }
 
@@ -34,9 +37,28 @@ namespace BibliotecaJogos.Jogos
             jogo.Titulo = TxtTitulo.Text;
             jogo.Valor = string.IsNullOrWhiteSpace(TxtValor.Text) ? (double?)null : Convert.ToDouble(TxtValor.Text);
             jogo.Data = string.IsNullOrWhiteSpace(TxtCompra.Text)? (DateTime?)null : Convert.ToDateTime(TxtCompra.Text);
-            jogo.Imagem = SalvarImagem();
+            
+            try
+            {
+                jogo.Imagem = SalvarImagem();
+            } 
+            catch (Exception ex)
+            {
+                LblMsgErro.Text = "Ocorreu um erro ao salvar a imagem";
+            }
 
-            _jogosBo.InserirNovoJogo(jogo);
+            try
+            {
+                _jogosBo.InserirNovoJogo(jogo);
+                LblMsgErro.ForeColor = Color.Green;
+                LblMsgErro.Text = "Jogo cadastrado com sucesso!";
+                BtnGravar.Enabled = false;
+            }
+            catch (Exception)
+            {
+                LblMsgErro.ForeColor = Color.Red;
+                LblMsgErro.Text = "Ocorreu um erro ao salvar o jogo";
+            }
         }
 
         private string SalvarImagem()
@@ -60,7 +82,6 @@ namespace BibliotecaJogos.Jogos
             }
         }
 
-
         private void CarregarEditoresCombo()
         {
             _editorBo = new EditorBo();
@@ -75,6 +96,41 @@ namespace BibliotecaJogos.Jogos
             var generos = _generoBo.ObterGeneros();
             DdlGenero.DataSource = generos;
             DdlGenero.DataBind();
+        }
+
+        public void CarregarDadosEdicao()
+        {
+            _jogosBo = new JogosBo();
+            var jogo = _jogosBo.ObterJogoId(ObterIdJogo());
+
+            TxtTitulo.Text = jogo.Titulo;
+            TxtValor.Text = jogo.Valor.ToString();
+            TxtCompra.Text = jogo.Data.ToString();
+            DdlEditor.Text = jogo.IdEditor.ToString();
+            DdlGenero.Text = jogo.IdGenero.ToString();
+        }
+
+        public int ObterIdJogo()
+        {
+            var id = 0;
+            var idQueryString = Request.QueryString["id"];
+            if (int.TryParse(idQueryString, out id))
+            {
+                if (id <= 0)
+                {
+                    throw new Exception("ID inválido!");
+                }
+                return id;
+            }
+            else
+            {
+                throw new Exception("ID inválido!");
+            }
+        }
+
+        public bool ModoEdicao()
+        {
+            return Request.QueryString.AllKeys.Contains("id");
         }
     }
 }

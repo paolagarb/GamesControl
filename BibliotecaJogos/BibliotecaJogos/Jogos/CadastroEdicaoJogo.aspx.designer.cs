@@ -105,6 +105,15 @@ namespace BibliotecaJogos.Jogos
         protected global::System.Web.UI.WebControls.ValidationSummary valSum;
 
         /// <summary>
+        /// Controle LblMsgErro.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblMsgErro;
+
+        /// <summary>
         /// Controle BtnGravar.
         /// </summary>
         /// <remarks>

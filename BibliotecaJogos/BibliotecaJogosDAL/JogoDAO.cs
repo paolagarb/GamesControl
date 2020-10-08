@@ -62,5 +62,42 @@ namespace BibliotecaJogosDAL
 
             return comm.ExecuteNonQuery();
         }
+
+        public Jogo ObterJogoId(int id)
+        {
+            try
+            {
+                Conexao.Conectar();
+                var comm = new SqlCommand();
+                comm.Connection = Conexao.conexao;
+                comm.CommandText = "SELECT * FROM Jogo WHERE ID = @Id";
+                comm.Parameters.AddWithValue("@Id", id);
+
+                var reader = comm.ExecuteReader();
+                Jogo jogo = null;
+
+                while (reader.Read())
+                {
+                    jogo = new Jogo();
+
+                    jogo.Id = Convert.ToInt32(reader["Id"]);
+                    jogo.Imagem = reader["Imagem"] == DBNull.Value ? null : reader["Imagem"].ToString();
+                    jogo.Data = reader["Compra"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["Compra"]);
+                    jogo.Titulo = reader["Titulo"].ToString();
+                    jogo.Valor = reader["Valor"] == DBNull.Value ? (double?)null : Convert.ToDouble(reader["Valor"]);
+                    jogo.IdEditor = Convert.ToInt32(reader["IdEditor"]);
+                    jogo.IdGenero = Convert.ToInt32(reader["IdGenero"]);
+                }
+                return jogo;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Conexao.Desconectar();
+            }
+        }
     }
 }
