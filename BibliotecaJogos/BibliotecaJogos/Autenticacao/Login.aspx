@@ -22,10 +22,7 @@
             <asp:Button ID="btnLogin" runat="server" Text="Entrar" OnClick="btnLogin_Click" />
             <br />
             <asp:Label ID="lblResposta" runat="server" Text=""></asp:Label>
-        </div>
-        
-        
-        
+        </div> 
     </form>
 </body>
 </html>
