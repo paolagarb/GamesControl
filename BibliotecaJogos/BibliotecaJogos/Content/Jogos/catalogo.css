@@ -1,4 +1,7 @@
-﻿body {
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .jogo {
@@ -13,3 +16,13 @@
     border: 1px solid black;
 }
 
+.capa-jogo img:first-of-type {
+    width: 150px;
+    height: 200px;
+}
+
+.nome-jogo {
+    font-family: Verdana;
+    font-size: 12px;
+    text-align: center;
+}
