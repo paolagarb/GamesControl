@@ -13,6 +13,7 @@ namespace BibliotecaJogos.Jogos
     {
         private GeneroBo _generoBo;
         private EditorBo _editorBo;
+        private JogosBo _jogosBo;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,6 +26,7 @@ namespace BibliotecaJogos.Jogos
 
         protected void BtnGravar_Click(object sender, EventArgs e)
         {
+            _jogosBo = new JogosBo();
             var jogo = new Jogo();
 
             jogo.IdEditor = Convert.ToInt32(DdlEditor.SelectedValue);
@@ -32,8 +34,32 @@ namespace BibliotecaJogos.Jogos
             jogo.Titulo = TxtTitulo.Text;
             jogo.Valor = string.IsNullOrWhiteSpace(TxtValor.Text) ? (double?)null : Convert.ToDouble(TxtValor.Text);
             jogo.Data = string.IsNullOrWhiteSpace(TxtCompra.Text)? (DateTime?)null : Convert.ToDateTime(TxtCompra.Text);
-            jogo.Imagem = FileUploadImage.FileName;
+            jogo.Imagem = SalvarImagem();
+
+            _jogosBo.InserirNovoJogo(jogo);
         }
+
+        private string SalvarImagem()
+        {
+            if (FileUploadImage.HasFile)
+            {
+                try
+                {
+                    var caminho = $"{AppDomain.CurrentDomain.BaseDirectory}Content\\Imagens\\";
+                    var fileName = $"{DateTime.Now.ToString("yyyyMMddhhmmss")}_{FileUploadImage.FileName}";
+                    FileUploadImage.SaveAs(caminho + fileName);
+                    return fileName;
+                } 
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            } else
+            {
+                return null;
+            }
+        }
+
 
         private void CarregarEditoresCombo()
         {
