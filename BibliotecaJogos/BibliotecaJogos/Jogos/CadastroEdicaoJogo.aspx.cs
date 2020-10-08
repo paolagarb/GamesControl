@@ -105,7 +105,7 @@ namespace BibliotecaJogos.Jogos
 
             TxtTitulo.Text = jogo.Titulo;
             TxtValor.Text = jogo.Valor.ToString();
-            TxtCompra.Text = jogo.Data.ToString();
+            TxtCompra.Text = jogo.Data.HasValue ? jogo.Data.Value.ToString("yyyy-MM-dd") : string.Empty;
             DdlEditor.Text = jogo.IdEditor.ToString();
             DdlGenero.Text = jogo.IdGenero.ToString();
         }
