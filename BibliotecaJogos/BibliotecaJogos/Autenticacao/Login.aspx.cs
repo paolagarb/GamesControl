@@ -28,6 +28,8 @@ namespace BibliotecaJogos.Autenticacao
             {
                 var usuario = _loginBo.ObterUsuario(nomeUsuario, senha);
                 FormsAuthentication.RedirectFromLoginPage(nomeUsuario, false); //false = não permanece logado
+                Session.Timeout = 30;
+                Session["Perfil"] = usuario.Perfil;
             }
             catch (UsuarioNaoEncontradoException)
             {

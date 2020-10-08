@@ -9,7 +9,7 @@
     <hr />
     <asp:Repeater ID="RepeaterJogos" runat="server">
         <ItemTemplate>
-            <div class="jogo">
+            <div class="jogo" onclick="redirecionarJogo('<%=Session["Perfil"].ToString()%>',<%#DataBinder.Eval(Container.DataItem, "Id") %>)">
                 <div class="capa-jogo">
                     <img src="../Content/Imagens/<%# DataBinder.Eval(Container.DataItem, "Imagem") %>" alt="<%#DataBinder.Eval(Container.DataItem, "Titulo") %>"/>
                 </div>
@@ -21,4 +21,14 @@
         </ItemTemplate>
     </asp:Repeater>
 
+    <script>
+        function redirecionarJogo(perfil, id) {
+            if (perfil === "A") {
+                top.location.href = "CadastroEdicaoJogo.aspx?id="+id;
+            } else {
+                top.location.href = "DetalhesJogo.aspx?id="+id;
+            }
+        }
+
+    </script>
 </asp:Content>
