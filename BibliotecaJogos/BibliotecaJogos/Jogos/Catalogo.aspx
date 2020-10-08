@@ -9,6 +9,7 @@
         <ItemTemplate>
             <div class="jogo">
                 <div class="capa-jogo">
+                    <img src="../Content/Imagens/<%# DataBinder.Eval(Container.DataItem, "Imagem") %>" alt="<%#DataBinder.Eval(Container.DataItem, "Titulo") %>"/>
                 </div>
                 <div class="nome-jogo">
                     <%# DataBinder.Eval(Container.DataItem,"Titulo") %>

@@ -10,8 +10,8 @@ namespace BibliotecaJogosEntities
     {
         public int Id { get; set; }
         public string Titulo { get; set; }
-        public double Valor { get; set; }
+        public double? Valor { get; set; }
         public string Imagem { get; set; }
-        public DateTime Data { get; set; }
+        public DateTime? Data { get; set; }
     }
 }
