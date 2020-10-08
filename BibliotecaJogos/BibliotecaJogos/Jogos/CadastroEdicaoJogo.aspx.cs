@@ -13,5 +13,10 @@ namespace BibliotecaJogos.Jogos
         {
 
         }
+
+        protected void BtnGravar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

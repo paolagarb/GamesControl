@@ -15,6 +15,15 @@ namespace BibliotecaJogos.Jogos
     {
 
         /// <summary>
+        /// Controle RfvTitulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvTitulo;
+
+        /// <summary>
         /// Controle TxtTitulo.
         /// </summary>
         /// <remarks>
@@ -51,6 +60,15 @@ namespace BibliotecaJogos.Jogos
         protected global::System.Web.UI.WebControls.FileUpload FileUploadImage;
 
         /// <summary>
+        /// Controle RfvGenero.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvGenero;
+
+        /// <summary>
         /// Controle DdlGenero.
         /// </summary>
         /// <remarks>
@@ -60,6 +78,15 @@ namespace BibliotecaJogos.Jogos
         protected global::System.Web.UI.WebControls.DropDownList DdlGenero;
 
         /// <summary>
+        /// Controle RfvEditor.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvEditor;
+
+        /// <summary>
         /// Controle DdlEditor.
         /// </summary>
         /// <remarks>
@@ -67,6 +94,15 @@ namespace BibliotecaJogos.Jogos
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DdlEditor;
+
+        /// <summary>
+        /// Controle valSum.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary valSum;
 
         /// <summary>
         /// Controle BtnGravar.
