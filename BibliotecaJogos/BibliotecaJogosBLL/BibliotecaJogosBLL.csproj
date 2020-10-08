@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autenticacao\JogoInvalidoException.cs" />
+    <Compile Include="Autenticacao\JogoNaoCadastradoException.cs" />
     <Compile Include="JogosBo.cs" />
     <Compile Include="Autenticacao\LoginBo.cs" />
     <Compile Include="EditorBo.cs" />

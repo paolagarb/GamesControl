@@ -44,5 +44,23 @@ namespace BibliotecaJogosDAL
                 Conexao.Desconectar();
             }
         }
+
+        public int InserirJogo(Jogo jogo)
+        {
+            Conexao.Conectar();
+            var comm = new SqlCommand();
+            comm.Connection = Conexao.conexao;
+            comm.CommandText = @"INSERT INTO Jogo (Titulo, Valor, Imagem, Compra, IdEditor, IdGenero)
+                                 VALUES (@Titulo, @Valor, @Imagem, @Compra, @IdEditor, @IdGenero)";
+
+            comm.Parameters.AddWithValue("@Titulo", jogo.Titulo);
+            comm.Parameters.AddWithValue("@Valor", jogo.Valor);
+            comm.Parameters.AddWithValue("Imagem", jogo.Imagem);
+            comm.Parameters.AddWithValue("Compra", jogo.Data);
+            comm.Parameters.AddWithValue("@IdEditor", jogo.IdEditor);
+            comm.Parameters.AddWithValue("@IdGenero", jogo.IdGenero);
+
+            return comm.ExecuteNonQuery();
+        }
     }
 }
