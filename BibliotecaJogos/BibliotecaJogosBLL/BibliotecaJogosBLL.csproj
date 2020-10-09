@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Autenticacao\JogoInvalidoException.cs" />
     <Compile Include="Autenticacao\JogoNaoCadastradoException.cs" />
+    <Compile Include="Exceptions\JogoNaoAlteradoException.cs" />
     <Compile Include="Exceptions\JogoNaoEncontradoException.cs" />
     <Compile Include="JogosBo.cs" />
     <Compile Include="Autenticacao\LoginBo.cs" />

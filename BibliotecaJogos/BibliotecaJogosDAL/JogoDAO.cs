@@ -110,7 +110,6 @@ namespace BibliotecaJogosDAL
                 comm.CommandText = @"UPDATE Jogo SET 
                                 Titulo = @Titulo, 
                                 Valor = @Valor, 
-                                Imagem = @Imagem, 
                                 Compra = @Compra, 
                                 IdEditor = @IdEditor, 
                                 IdGenero = @IdGenero
@@ -118,7 +117,6 @@ namespace BibliotecaJogosDAL
 
                 comm.Parameters.AddWithValue("@Titulo", jogo.Titulo);
                 comm.Parameters.AddWithValue("@Valor", jogo.Valor);
-                comm.Parameters.AddWithValue("Imagem", jogo.Imagem);
                 comm.Parameters.AddWithValue("Compra", jogo.Data);
                 comm.Parameters.AddWithValue("@IdEditor", jogo.IdEditor);
                 comm.Parameters.AddWithValue("@IdGenero", jogo.IdGenero);
