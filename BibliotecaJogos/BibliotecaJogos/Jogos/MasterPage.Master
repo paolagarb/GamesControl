@@ -16,8 +16,8 @@
             <asp:Menu ID="MenuPrincipal" runat="server">
                 <Items>
                     <asp:MenuItem Text="Jogos" Value="Catálogo">
-                        <asp:MenuItem PopOutImageUrl="~/Jogos/Catalogo.aspx" Text="Catálogo" Value="Catálogo" ></asp:MenuItem>
-                        <asp:MenuItem Text="Cadastro" Value="CadastroJogos"></asp:MenuItem>
+                        <asp:MenuItem PopOutImageUrl="~/Jogos/Catalogo.aspx" Text="Catálogo" Value="Catálogo" NavigateUrl="~/Jogos/Catalogo.aspx" ></asp:MenuItem>
+                        <asp:MenuItem Text="Cadastro" Value="CadastroJogos" NavigateUrl="~/Jogos/CadastroEdicaoJogo.aspx"></asp:MenuItem>
                     </asp:MenuItem>
                     <asp:MenuItem Text="Sair" Value="Sair" NavigateUrl="~/Jogos/Catalogo.aspx?logout=logout"></asp:MenuItem>
                 </Items>

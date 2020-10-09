@@ -16,7 +16,11 @@ namespace BibliotecaJogos.Jogos
         private JogosBo _jogosBo;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack) CarregarJogosRepeater();
+            if (!Page.IsPostBack)
+            {
+                CarregarJogosRepeater();
+               Deslogar();
+            }
         }
 
         private void CarregarJogosRepeater()
@@ -32,7 +36,7 @@ namespace BibliotecaJogos.Jogos
             {
                 FormsAuthentication.SignOut();
                 Session.Abandon();
-                FormsAuthentication.RedirectToLoginPage();
+                Response.Redirect("/Autenticacao/Login.aspx");
             }
         }
     }
