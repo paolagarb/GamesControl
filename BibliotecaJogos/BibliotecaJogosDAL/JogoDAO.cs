@@ -27,7 +27,7 @@ namespace BibliotecaJogosDAL
                     var jogo = new Jogo();
 
                     jogo.Id = Convert.ToInt32(reader["Id"]);
-                    jogo.Imagem = reader["Imagem"] == DBNull.Value? null : reader["Imagem"].ToString();
+                    jogo.Imagem = reader["Imagem"] == DBNull.Value ? null : reader["Imagem"].ToString();
                     jogo.Data = reader["Compra"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["Compra"]);
                     jogo.Titulo = reader["Titulo"].ToString();
                     jogo.Valor = reader["Valor"] == DBNull.Value ? (double?)null : Convert.ToDouble(reader["Valor"]);
@@ -97,6 +97,39 @@ namespace BibliotecaJogosDAL
             finally
             {
                 Conexao.Desconectar();
+            }
+        }
+
+        public int AlterarJogo(Jogo jogo)
+        {
+            try
+            {
+                Conexao.Conectar();
+                var comm = new SqlCommand();
+                comm.Connection = Conexao.conexao;
+                comm.CommandText = @"UPDATE Jogo SET 
+                                Titulo = @Titulo, 
+                                Valor = @Valor, 
+                                Imagem = @Imagem, 
+                                Compra = @Compra, 
+                                IdEditor = @IdEditor, 
+                                IdGenero = @IdGenero
+                                WHERE Id = @Id";
+
+                comm.Parameters.AddWithValue("@Titulo", jogo.Titulo);
+                comm.Parameters.AddWithValue("@Valor", jogo.Valor);
+                comm.Parameters.AddWithValue("Imagem", jogo.Imagem);
+                comm.Parameters.AddWithValue("Compra", jogo.Data);
+                comm.Parameters.AddWithValue("@IdEditor", jogo.IdEditor);
+                comm.Parameters.AddWithValue("@IdGenero", jogo.IdGenero);
+                comm.Parameters.AddWithValue("@Id", jogo.Id);
+
+                return comm.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

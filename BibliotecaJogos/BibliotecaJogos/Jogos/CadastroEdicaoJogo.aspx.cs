@@ -30,14 +30,8 @@ namespace BibliotecaJogos.Jogos
         protected void BtnGravar_Click(object sender, EventArgs e)
         {
             _jogosBo = new JogosBo();
-            var jogo = new Jogo();
+            var jogo = ObterModelo();
 
-            jogo.IdEditor = Convert.ToInt32(DdlEditor.SelectedValue);
-            jogo.IdGenero = Convert.ToInt32(DdlGenero.SelectedValue);
-            jogo.Titulo = TxtTitulo.Text;
-            jogo.Valor = string.IsNullOrWhiteSpace(TxtValor.Text) ? (double?)null : Convert.ToDouble(TxtValor.Text);
-            jogo.Data = string.IsNullOrWhiteSpace(TxtCompra.Text)? (DateTime?)null : Convert.ToDateTime(TxtCompra.Text);
-            
             try
             {
                 jogo.Imagem = SalvarImagem();
@@ -49,9 +43,22 @@ namespace BibliotecaJogos.Jogos
 
             try
             {
-                _jogosBo.InserirNovoJogo(jogo);
-                LblMsgErro.ForeColor = Color.Green;
-                LblMsgErro.Text = "Jogo cadastrado com sucesso!";
+
+                if (ModoEdicao())
+                {
+                    jogo.Id = ObterIdJogo();
+                    _jogosBo.AlterarJogo(jogo);
+                    LblMsgErro.ForeColor = Color.Green;
+                    LblMsgErro.Text = "Jogo alterado com sucesso!";
+
+                } else
+                {
+                    _jogosBo.InserirNovoJogo(jogo); 
+                    LblMsgErro.ForeColor = Color.Green;
+                    LblMsgErro.Text = "Jogo cadastrado com sucesso!";
+                }
+
+                
                 BtnGravar.Enabled = false;
             }
             catch (Exception)
@@ -131,6 +138,18 @@ namespace BibliotecaJogos.Jogos
         public bool ModoEdicao()
         {
             return Request.QueryString.AllKeys.Contains("id");
+        }
+
+        private Jogo ObterModelo()
+        {
+            var jogo = new Jogo();
+            jogo.IdEditor = Convert.ToInt32(DdlEditor.SelectedValue);
+            jogo.IdGenero = Convert.ToInt32(DdlGenero.SelectedValue);
+            jogo.Titulo = TxtTitulo.Text;
+            jogo.Valor = string.IsNullOrWhiteSpace(TxtValor.Text) ? (double?)null : Convert.ToDouble(TxtValor.Text);
+            jogo.Data = string.IsNullOrWhiteSpace(TxtCompra.Text) ? (DateTime?)null : Convert.ToDateTime(TxtCompra.Text);
+
+            return jogo;
         }
     }
 }
